@@ -4,13 +4,13 @@ import emailjs from "@emailjs/browser";
 
 export default function Contact() {
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     emailjs.sendForm(
       "service_6rg2s0q",   // replace with your service ID
       "template_y43t9a8",  // replace with your template ID
-      e.target,
+      e.currentTarget,
       "Bed5mQaWixcNE8CPU"       // replace with your public key
     ).then(
       () => {
@@ -22,7 +22,7 @@ export default function Contact() {
       }
     );
 
-    e.target.reset();
+    e.currentTarget.reset();
   };
 
   return (
